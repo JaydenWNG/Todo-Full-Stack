@@ -13,7 +13,7 @@ import { HttpInterceptorBasicAuth } from './service/http/http-interceptor-basic-
   imports: [RouterOutlet, FormsModule, Menu, Footer, HttpClientModule],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorBasicAuth, multi: true}],
+  // providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorBasicAuth, multi: true}],
 })
 export class App {
   title = signal('todo');
