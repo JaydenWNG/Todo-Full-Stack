@@ -9,19 +9,7 @@ export class BasicAuthentication {
   
   constructor(private http: HttpClient) {}
 
-  authenticate(username: string, password: string) {
-    // console.log('before ' + this.isUserLoggedIn());
-    
-    if (username === 'JaydenWNG' && password === 'SeizeTheDay1!') {
-      sessionStorage.setItem('authenticatedUser', username);
-      // console.log('after ' + this.isUserLoggedIn());
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-    executeAuthentication(username: string, password: string) {
+  executeAuthentication(username: string, password: string) {
     let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password); 
     
     let headers = new HttpHeaders({
@@ -31,10 +19,22 @@ export class BasicAuthentication {
     .pipe(
       map(data => {
         sessionStorage.setItem('authenticatedUser', username);
+        sessionStorage.setItem('token', basicAuthHeaderString);
         return data;
       })
     );
     // console.log('Hello World Bean Service Executed');
+  }
+
+  getAuthenticatedUser() {
+    return sessionStorage.getItem('authenticatedUser');
+  }
+
+  getAuthenticatedToken() {
+    if (this.getAuthenticatedUser()) {
+      return sessionStorage.getItem('token');
+    }
+    return null;
   }
 
   isUserLoggedIn() {

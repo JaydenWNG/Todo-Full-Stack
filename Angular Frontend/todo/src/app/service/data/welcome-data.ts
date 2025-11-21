@@ -17,12 +17,12 @@ export class WelcomeData {
     // return { message: 'Hello World from the Backend!' };
   }
 
-    executedHelloWorldServiceWithPathVariable(name: string) {
-    let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
-    let headers = new HttpHeaders({
-      Authorization: basicAuthHeaderString
-    })
-    return this.http.get<HelloWorldBean>(`http://localhost:8080/hello-world/path-variable/${name}`, {headers});
+  executedHelloWorldServiceWithPathVariable(name: string) {
+    // let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+    // let headers = new HttpHeaders({
+    //   Authorization: basicAuthHeaderString
+    // })
+    return this.http.get<HelloWorldBean>(`http://localhost:8080/hello-world/path-variable/${name}`);
     // console.log('Hello World Bean Service Executed');
     // return { message: 'Hello World from the Backend!' };
   }
