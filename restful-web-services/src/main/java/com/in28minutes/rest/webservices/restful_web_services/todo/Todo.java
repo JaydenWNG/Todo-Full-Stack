@@ -2,8 +2,16 @@ package com.in28minutes.rest.webservices.restful_web_services.todo;
 
 import java.util.Date;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Todo {
-    private long id;
+    @Id
+    @GeneratedValue(strategy = jakarta.persistence.GenerationType.SEQUENCE, generator = "todo_seq")
+    @jakarta.persistence.SequenceGenerator(name = "todo_seq", sequenceName = "todo_seq", initialValue = 10001, allocationSize = 1)
+    private Long id;
     private String username;
     private String description;
     private Date targetDate;
@@ -13,7 +21,7 @@ public class Todo {
         
     }
 
-    public Todo(long id, String username, String description, Date targetDate, boolean isDone) {
+    public Todo(Long id, String username, String description, Date targetDate, boolean isDone) {
         this.id = id;
         this.username = username;
         this.description = description;
@@ -21,11 +29,11 @@ public class Todo {
         this.isDone = isDone;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
