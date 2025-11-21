@@ -10,7 +10,7 @@ export class HttpInterceptorBasicAuth implements HttpInterceptor{
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     let username = 'JaydenWNG'
-    let password = 'SeizeTheDay123!'
+    let password = 'SeizeTheDay1!'
     let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
 
     req = req.clone({

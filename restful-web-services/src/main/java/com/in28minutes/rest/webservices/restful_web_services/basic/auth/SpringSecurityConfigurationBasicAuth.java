@@ -20,7 +20,7 @@ public class SpringSecurityConfigurationBasicAuth{
         return 
                 http
                     .authorizeHttpRequests(
-                        auth ->
+                        auth -> 
                             auth
                             .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                             .anyRequest().authenticated()
