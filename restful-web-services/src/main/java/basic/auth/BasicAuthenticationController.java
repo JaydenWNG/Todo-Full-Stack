@@ -1,4 +1,4 @@
-package com.in28minutes.rest.webservices.restful_web_services.basic.auth;
+package basic.auth;
 
 import org.hibernate.annotations.ConverterRegistrations;
 import org.springframework.web.bind.annotation.CrossOrigin;

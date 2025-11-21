@@ -32,7 +32,21 @@ export class Login {
     }
   }
 
-  handleBasicAuthLogin() {
+  handleJWTAuthLogin() {
+    this.basicAuthentication.executeJWTAuthentication(this.username, this.password).subscribe({
+      next: (data) => {
+        console.log(data);
+      this.router.navigate(['welcome', this.username]);
+      this.invalidLogin = false;
+    },
+      error: (error) => {
+        console.log(error);
+        this.invalidLogin = true;
+      }
+    });
+  }
+
+    handleBasicAuthLogin() {
     this.basicAuthentication.executeAuthentication(this.username, this.password).subscribe({
       next: (data) => {
         console.log(data);
